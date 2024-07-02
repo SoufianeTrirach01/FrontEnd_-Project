@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Optional: background color for visual aid */
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Optional: background color for the form */
+  padding: 20px;
+  border-radius: 8px; /* Optional: rounding the corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for better visibility */
+}
+
+.child {
+  width: 100%;
+  max-width: 400px;
+}
+
+.ng-col h1 {
+  text-align: center; /* Center align the heading */
+}
