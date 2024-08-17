@@ -1,31 +1,25 @@
-<form nz-form [formGroup]="validateForm" (submit)="getServiceByName()">
-  <input type="text" formControlName="service"  placeholder="enter name"/>
-  <button [disabled]="validateForm.invalid">Search</button>
-</form>
-<div class="bg">
-  <div style="margin-top: 10px" class="child" *ngFor="let serv of services">
+<div class="search-container">
+  <form nz-form [formGroup]="validateForm" (submit)="getServiceByName()" class="search-form">
+    <input type="text" formControlName="service" placeholder="Entrez nom service" nz-input />
+    <button nz-button nzType="primary" >Search</button>
+  </form>
+</div>
+
+<div class="services-container">
+  <div class="service-card" *ngFor="let serv of services">
     <div nz-row>
-
-      <div nz-col nzspan="16">
-        <img [src]="updateImg(serv.returnedImg)" style="height: 150px;width: 130px;"/>
+      <div nz-col nzSpan="8" routerLink="/client/service/{{ serv.id }}">
+        <img [src]="updateImg(serv.returnedImg)" class="service-img" />
       </div>
-      <div nz-col nzspan="16">
-        <h2 style="cursor: pointer; color: #108ee9">{{serv.serviceName}}</h2>
 
+      <div nz-col nzSpan="16" class="service-info" routerLink="/client/service/{{ serv.id }}">
+        <h2 class="service-name">{{ serv.serviceName }}</h2>
         <hr />
-
-        <h5></h5>
-
-        <h5>Price : <b>{{serv.price}}</b> Description: <b>{{serv.description}}</b></h5>
+        <p>Prix: <b>{{ serv.price }}Dh</b></p>
+        <p>Description: <b>{{ serv.description }}</b></p>
         <hr />
-
-        <div style="float: right">
-          <button
-            nzSize="small"
-            nz-button
-            nzType="primary"
-            routerLink="/client/service/{{serv.id}}"
-          >
+        <div class="service-actions">
+          <button nz-button nzType="primary" routerLink="/client/service/{{ serv.id }}">
             View
           </button>
         </div>

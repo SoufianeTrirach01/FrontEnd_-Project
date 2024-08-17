@@ -1,0 +1,35 @@
+.custom-navbar {
+  background-color: #15b9d9;
+  margin-bottom: 0; /* Ensure no bottom margin */
+  padding-bottom: 0; /* Ensure no bottom padding */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link,
+.custom-navbar .navbar-toggler-icon {
+  color: white !important;
+}
+
+.custom-navbar .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #f0f0f0 !important;
+}
+
+.custom-navbar .navbar-toggler {
+  border: none;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.content-container {
+  padding: 0; /* Ensure no padding */
+  margin: 0; /* Ensure no margin */
+  position: relative;
+  top: 0;
+}

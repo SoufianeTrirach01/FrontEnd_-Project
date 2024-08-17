@@ -30,12 +30,12 @@ export class SignUpCompanyComponent {
     const password=this.validatForm.get('password').value;
     const confirmPassword=this.validatForm.get('confpassword').value;
     if (password !== confirmPassword) {
-      this.nothification.error('ERROR', 'Password and Confirm Password must match', { nzDuration: 5000 });
+      this.nothification.error('ERROR', 'Le mot de passe et Confirmer le mot de passe doivent correspondre', { nzDuration: 5000 });
       return;
     }
       this.authService.registreEntreprise(this.validatForm.value).subscribe(
         { next: (data: any) => {
-          this.nothification.success('SUCCESS', 'SignUp Successful',{ nzDuration: 5000 }
+          this.nothification.success('SUCCESS', 'Inscription Avec Succès',{ nzDuration: 5000 }
         );
           this.route.navigateByUrl('/login');
         },

@@ -1,0 +1,62 @@
+.reservation-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  nz-table {
+    width: 100%;
+    margin-top: 20px;
+
+    .heading {
+      background-color: #15b9d9;
+      color: white;
+      text-align: left;
+      padding: 10px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .font-weight-bold {
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+
+      &-success {
+        background-color: #28a745;
+        color: white;
+      }
+
+      &-danger {
+        background-color: #dc3545;
+        color: white;
+      }
+
+      &-warning {
+        background-color: #ffc107;
+        color: black;
+      }
+    }
+
+    button {
+      background-color: #15b9d9;
+      border-color: #15b9d9;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken(#15b9d9, 10%);
+        border-color: darken(#15b9d9, 10%);
+      }
+    }
+  }
+}

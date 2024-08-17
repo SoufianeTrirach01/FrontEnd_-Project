@@ -1,0 +1,57 @@
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: aliceblue;
+}
+
+.child {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.imgDiv {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile-badge {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.upload input[type="file"] {
+  display: none;
+}
+
+.upload {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.upload::before {
+  content: 'Modifier Image';
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #15b9d9;
+  color: white;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.upload:hover::before {
+  background: #15b9d9;
+}

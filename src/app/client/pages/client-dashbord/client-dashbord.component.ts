@@ -20,11 +20,14 @@ export class ClientDashbordComponent {
     })
   }
   getServiceByName() {
-    this.serviceClient.getByNameServices(
-      this.validateForm.get(['service']).value).subscribe(
-        res => {
-      this.services = res;
-    })
+    const serviceName = this.validateForm.get('service')?.value;
+    if (!serviceName || serviceName.trim() === '') {
+      this.getAllService();
+    } else {
+      this.serviceClient.getByNameServices(serviceName).subscribe(res => {
+        this.services = res;
+      });
+    }
   }
   ngOnInit() {
     this.validateForm = this.fb.group({

@@ -1,0 +1,85 @@
+.carousel-item {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  opacity: 85%;
+}
+*{    font-family: 'Open Sans', sans-serif;
+}
+.carousel-caption {
+  bottom: 20%;
+}
+.service-content-inner .description {
+  height: 100px; /* Adjust the height as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.carousel-caption h1,
+.carousel-caption p,
+.carousel-caption .btn {
+  margin-bottom: 10px;
+}
+.carousel-indicators button {
+  border-radius: 50%; /* Make the border rounded */
+  border: 2px solid #0dcaf0; /* Add a border with the specified color */
+  width: 12px; /* Optional: Adjust the width of the indicator */
+  height: 12px; /* Optional: Adjust the height of the indicator */
+  background-color: transparent; /* Ensure the background is transparent */
+}
+
+.carousel-indicators .active {
+  background-color: #0dcaf0; /* Change the background color of the active indicator */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #0dcaf0; /* Change the background color of the icon */
+  border-radius: 50%; /* Make the icon background rounded */
+  padding: 5px; /* Optional: Add padding to the icon */
+}
+
+
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+  outline: none; /* Remove the default focus outline */
+  box-shadow: 0 0 0 4px rgba(0, 173, 239, 0.5); /* Add custom focus outline */
+}
+.carousel {
+  position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; /* Adjust the width of the button */
+  height: 40px; /* Adjust the height of the button */
+  border-radius: 50%; /* Make the border rounded */
+  border: 2px solid #0dcaf0; /* Add a border with the specified color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #0dcaf0; /* Change the background color of the icon */
+  border-radius: 50%; /* Make the icon background rounded */
+  padding: 5px; /* Optional: Add padding to the icon */
+}
+
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+  outline: none; /* Remove the default focus outline */
+  box-shadow: 0 0 0 4px rgba(0, 173, 239, 0.5); /* Add custom focus outline */
+}
+

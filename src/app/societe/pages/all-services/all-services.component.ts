@@ -25,7 +25,7 @@ export class AllServicesComponent {
   }
   updateImg(img) {
     return 'data:image/jpeg;base64,' + img
-  } 
+  }
   deleteService(serviceId:any){
     this.serviceCompany.deleteService(serviceId).subscribe(res=>
       {

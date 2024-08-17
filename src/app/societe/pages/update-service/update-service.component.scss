@@ -1,0 +1,85 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  background-color: aliceblue;
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.child {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.imgDiv {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-left: 0;
+}
+
+.file-upload-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.file-upload-container label.upload {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #15b9d9;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.file-upload-container input[type="file"] {
+  display: none;
+}
+
+.file-upload-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.nz-form-item {
+  margin-bottom: 20px;
+}
+
+.nz-form-item input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.button-container {
+  text-align: center;
+}
+
+button[nz-button] {
+  background-color: #15b9d9;
+  border-color: #15b9d9;
+  color: white;
+  border-radius: 5px;
+}

@@ -1,43 +1,26 @@
-<div class="parent">
-  <div class="child">
-    <div nz-row class="imgDiv">
-      <h2 style="margin-left: 230px">Post Review</h2>
-    </div>
-    <form nz-form [formGroup]="validateForm"
-     (ngSubmit)="saveReview()">
-      <div nz-col nzspan="24">
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-center mb-4">Ajouter Avis</h2>
+          <form nz-form [formGroup]="validateForm" (ngSubmit)="saveReview()">
+            <div class="form-group">
+              <label for="reviewTextarea">votre avis</label>
+              <textarea id="reviewTextarea" rows="5" class="form-control" formControlName="review" placeholder="ecrire votre avis"></textarea>
+            </div>
 
-        <nz-form-item>
-          <nz-form-control
-           nzHasFeedback
-            nzErrorTip="This Input Is Required!">
+            <div class="form-group">
+              <label>Note</label>
+              <div>
+                <nz-rate formControlName="note"></nz-rate>
+              </div>
+            </div>
 
-            <textarea rows="5"
-             nz-input
-             placeholder="write a Review"
-              formControlName="review"></textarea>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-
-      <div nz-row>
-        <div nz-col nzSpan="24">
-          <nz-form-item>
-            <nz-form-control
-            nzHasFeedback
-            [nzXs]="24"
-             nzErrorTip="This Input Is Required!">
-
-               <nz-rate formControlName="note">
-
-              </nz-rate>
-
-            </nz-form-control>
-          </nz-form-item>
+            <button nz-button nzType="primary" class="btn btn-block">Publier</button>
+          </form>
         </div>
       </div>
-      
-      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Post</button>
-    </form>
+    </div>
   </div>
 </div>

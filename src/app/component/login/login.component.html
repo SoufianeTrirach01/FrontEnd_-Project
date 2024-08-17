@@ -1,8 +1,30 @@
+<style>
+  .container-bg {
+    background-image: url('/assets/img/sh.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-<div class="container d-flex justify-content-center align-items-center vh-100">
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px; /* Ajuste la largeur maximale de la carte si nécessaire */
+  overflow: hidden; /* Empêche le débordement du contenu */
+  margin-top: 20px; /* Ajuste la marge au-dessus de la carte */
+}
+  </style>
+<div class="container-bg d-flex justify-content-center align-items-center vh-100">
   <div class="card p-4 shadow-sm w-50">
     <div class="card-body">
-      <h1 class="text-center mb-4">Company Signup</h1>
+      <h1 class="text-center mb-4">Se Connecter</h1>
       <form [formGroup]="validateForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="email" class="form-label">E-mail</label>
@@ -18,11 +40,13 @@
             The input is not valid password!
           </div>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Login now</button>
+        <button type="submit" class="btn btn-primary w-100">Connecter</button>
         <div class="mt-3 text-center">
-          Or <a routerLink="/register">Register!</a>
+          Ou <a routerLink="/register">Inscrivez Vous!</a>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+

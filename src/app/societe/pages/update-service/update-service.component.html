@@ -1,89 +1,66 @@
-<div style="background-color: aliceblue">
+<div class="page-container">
   <div class="parent">
     <div class="child">
       <div class="imgDiv">
-        <h2 style="margin-left: 230px">Update Service</h2>
+        <h2>Modifier Service</h2>
       </div>
       <form nz-form (ngSubmit)="updateService()" [formGroup]="validateForm">
         <div nz-row>
           <div class="file-upload-container">
-              <label class="upload">
-                <span>Select File</span>
-
-                <input
-                  type="file"
-                  nz-button
-                  nzType="primary"
-                  accept="image/x-png,image/gif,image/jpeg"
-                  (change)="onFileSelected($event)"
-                />
-              </label>
-
-              <div *ngIf="imagePreview">
-                <div>
-                  <img [src]="imagePreview" alt="preview image" />
-                </div>
-              </div>
-
-              <div *ngIf="existingImg">
-                <div>
-                  <img [src]="existingImg" alt="existing image" />
-                </div>
-
-              </div>
+            <label class="upload">
+              <span>Modifier Image</span>
+              <input
+                type="file"
+                nz-button
+                nzType="primary"
+                accept="image/x-png,image/gif,image/jpeg"
+                (change)="onFileSelected($event)"
+              />
+            </label>
+            <div *ngIf="imagePreview">
+              <img [src]="imagePreview" alt="preview image" />
             </div>
-
-
+            <div *ngIf="existingImg && !imagePreview">
+              <img [src]="existingImg" alt="existing image" />
+            </div>
+          </div>
           <div nz-col nzSpan="24">
             <nz-form-item>
-              <nz-form-control
-                nzHasFeedback
-                nzErrorTip="this input is required"
-              >
+              <nz-form-control nzHasFeedback nzErrorTip="This input is required">
                 <input
                   nz-input
-                  placeholder="serviceName"
-                  nzType="primary"
+                  placeholder="Nom Service"
                   formControlName="serviceName"
                 />
               </nz-form-control>
             </nz-form-item>
           </div>
-
           <div nz-col nzSpan="24">
             <nz-form-item>
-              <nz-form-control
-                nzHasFeedback
-                nzErrorTip="this input is required"
-              >
+              <nz-form-control nzHasFeedback nzErrorTip="This input is required">
                 <input
                   nz-input
                   formControlName="price"
-                  placeholder="price"
-                  nzErrorType="this input is required"
+                  placeholder="Prix"
                 />
               </nz-form-control>
             </nz-form-item>
           </div>
-
           <div nz-col nzSpan="24">
             <nz-form-item>
-              <nz-form-control
-                nzHasFeedback
-                nzErrorTip="this input is required"
-              >
+              <nz-form-control nzHasFeedback nzErrorTip="This input is required">
                 <input
                   nz-input
-                  nzType="primary"
-                  placeholder="description"
+                  placeholder="Description"
                   formControlName="description"
-                  nzErrorType="this input is required"
                 />
               </nz-form-control>
             </nz-form-item>
           </div>
         </div>
-        <button nz-button [nzType]="'primary'">Update</button>
+        <div class="button-container">
+          <button nz-button [nzType]="'primary'">Update</button>
+        </div>
       </form>
     </div>
   </div>

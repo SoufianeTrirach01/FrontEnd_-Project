@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../../../service/company.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,18 +7,23 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 @Component({
   selector: 'app-update-service',
   templateUrl: './update-service.component.html',
-  styleUrl: './update-service.component.scss'
+  styleUrls: ['./update-service.component.scss']
 })
-export class UpdateServiceComponent {
-  serviceId: any = this.activatedRoute.snapshot.params['id']
-  constructor(private serviceCompany: CompanyService, private activatedRoute: ActivatedRoute, private fb: FormBuilder,
-    private notification: NzNotificationService, private router: Router) { }
-
-  selectedFile: File | null;
-  imagePreview: string | ArrayBuffer | null;
+export class UpdateServiceComponent implements OnInit {
+  serviceId: any = this.activatedRoute.snapshot.params['id'];
+  selectedFile: File | null = null;
+  imagePreview: string | ArrayBuffer | null = null;
   validateForm!: FormGroup;
-  existingImg: string | null = null
-  imgChanged = false
+  existingImg: string | null = null;
+  imgChanged = false;
+
+  constructor(
+    private serviceCompany: CompanyService,
+    private activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    private notification: NzNotificationService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -26,14 +31,15 @@ export class UpdateServiceComponent {
       description: [null, [Validators.required]],
       price: [null, [Validators.required]]
     });
-    this.getServiceById()
+    this.getServiceById();
   }
+
   // Handle Image
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
     this.previewImage();
-    this.existingImg = null
-    this.imgChanged = true
+    this.existingImg = null;
+    this.imgChanged = true;
   }
 
   previewImage() {
@@ -41,34 +47,39 @@ export class UpdateServiceComponent {
     reader.onload = () => {
       this.imagePreview = reader.result;
     };
-    reader.readAsDataURL(this.selectedFile);
+    reader.readAsDataURL(this.selectedFile!);
   }
-
 
   updateService() {
     const formData: FormData = new FormData();
     if (this.imgChanged && this.selectedFile) {
       formData.append('img', this.selectedFile);
-
     }
     formData.append('serviceName', this.validateForm.get('serviceName')?.value);
     formData.append('description', this.validateForm.get('description')?.value);
     formData.append('price', this.validateForm.get('price')?.value);
 
-    this.serviceCompany.updateService(this.serviceId, formData).subscribe(res => {
-      this.notification.success('Success', 'Service Updated successfully', { nzDuration: 5000 });
-      this.router.navigateByUrl('/company/services');
-    }, error => {
-      this.notification.error('ERROR', `${error.error}`, { nzDuration: 5000 });
-    });
+    this.serviceCompany.updateService(this.serviceId, formData).subscribe(
+      res => {
+        this.notification.success('Success', 'Service Updated successfully', { nzDuration: 5000 });
+        this.router.navigateByUrl('/company/services');
+      },
+      error => {
+        this.notification.error('ERROR', `${error.error}`, { nzDuration: 5000 });
+      }
+    );
   }
-  getServiceById() {
-    this.serviceCompany.getServiceById(this.serviceId).subscribe(res => {
-      console.log(res)
-      this.validateForm.patchValue(res)
-      this.existingImg = 'data:image/jpeg;based64,' + res.returnedImg;
-    }
 
-    )
+  getServiceById() {
+    this.serviceCompany.getServiceById(this.serviceId).subscribe(
+      res => {
+        console.log(res);
+        this.validateForm.patchValue(res);
+        this.existingImg = 'data:image/jpeg;base64,' + res.returnedImg;
+      },
+      error => {
+        this.notification.error('ERROR', `${error.error}`, { nzDuration: 5000 });
+      }
+    );
   }
 }

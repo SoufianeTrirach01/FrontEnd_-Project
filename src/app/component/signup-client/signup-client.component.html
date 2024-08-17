@@ -1,91 +1,50 @@
-<div class="bg">
-  <div class="parent">
-    <div class="child">
-      <div class="ng-col">
-        <h1 style="margin-left: 55px">Client Signup</h1>
+<div class="background-container"></div>
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-sm">
+      <div class="card-body">
+        <h1 class="text-center mb-4">Devenir Client</h1>
+        <form nz-form [formGroup]="validatForm" (ngSubmit)="submitForm()">
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="E-mail" />
+            <div *ngIf="validatForm.get('email').invalid && (validatForm.get('email').dirty || validatForm.get('email').touched)" class="text-danger">
+              L'adresse e-mail n'est pas valide !
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Mot de passe" />
+            <div *ngIf="validatForm.get('password').invalid && (validatForm.get('password').dirty || validatForm.get('password').touched)" class="text-danger">
+              Le mot de passe n'est pas valide !
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="confpassword" class="form-label">Confirmer le mot de passe</label>
+            <input type="password" class="form-control" id="confpassword" formControlName="confpassword" placeholder="Confirmer le mot de passe" />
+            <div *ngIf="validatForm.get('confpassword').invalid && (validatForm.get('confpassword').dirty || validatForm.get('confpassword').touched)" class="text-danger">
+              Le mot de passe n'est pas valide !
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nom" />
+            <div *ngIf="validatForm.get('name').invalid && (validatForm.get('name').dirty || validatForm.get('name').touched)" class="text-danger">
+              Le nom n'est pas valide !
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="phone" class="form-label">Téléphone</label>
+            <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Téléphone" />
+            <div *ngIf="validatForm.get('phone').invalid && (validatForm.get('phone').dirty || validatForm.get('phone').touched)" class="text-danger">
+              Le téléphone n'est pas valide !
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+          <div class="mt-3 text-center">
+            Ou <a routerLink="/login">connectez-vous maintenant!</a>
+          </div>
+        </form>
       </div>
-      <form nz-form [formGroup]="validatForm" (ngSubmit)="submitForm()">
-        <nz-form-item>
-             <nz-form-control nzHasFeedback nzErrorTip="The input is not valid E-mail!">
-          <input nz-input placeholder="E-mail" formControlName="email" id="email" />
-        </nz-form-control>
-      </nz-form-item>
-
-        <nz-form-item>
-          <nz-form-control
-            nzHasFeedback
-            nzErrorTip="The input is not valid password!"
-          >
-            <input
-              nz-input
-              type="password"
-              placeholder="Password"
-              formControlName="password"
-              id="password"
-            />
-          </nz-form-control>
-        </nz-form-item>
-
-        <nz-form-item>
-              <nz-form-control
-            nzHasFeedback
-            nzErrorTip="The input is not valid password!"
-          >
-            <input
-              nz-input
-              type="password"
-              placeholder="confpassword"
-              formControlName="confpassword"
-              id="confpassword"
-            />
-          </nz-form-control>
-        </nz-form-item>
-
-        <nz-form-item>
-          <nz-form-control
-        nzHasFeedback
-        nzErrorTip="The input is not valid Name!"
-      >
-        <input
-          nz-input
-          placeholder="Name"
-          formControlName="name"
-          id="name"
-        />
-      </nz-form-control>
-    </nz-form-item>
-
-    <nz-form-item>
-      <nz-form-control
-    nzHasFeedback
-    nzErrorTip="The input is not valid lastname!"
-  >
-    <input
-      nz-input
-      placeholder="lastname"
-      formControlName="lastname"
-      id="lastname"
-    />
-  </nz-form-control>
-</nz-form-item>
-
-<nz-form-item>
-  <nz-form-control
-nzHasFeedback
-nzErrorTip="The input is not valid phone!"
->
-<input
-  nz-input
-  placeholder="phone"
-  formControlName="phone"
-  id="phone"
-/>
-</nz-form-control>
-</nz-form-item>
-<button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Resgiter</button>
-Or <a routerLink="login" >login now!</a>
-</form>
-
     </div>
   </div>
-</div>

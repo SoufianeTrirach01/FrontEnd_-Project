@@ -6,7 +6,7 @@ import { AppComponent } from './src/app/app.component';
 import { LoginComponent } from './src/app/component/login/login.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { fr_FR } from 'ng-zorro-antd/i18n';
-import { registerLocaleData } from '@angular/common';
+import { NgClass, registerLocaleData } from '@angular/common';
 import fr from '@angular/common/locales/fr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -16,6 +16,9 @@ import { DemonNgZorroAntdModule } from './src/app/DemonNgZorroAntdModule';
 import { SignupClientComponent } from './src/app/component/signup-client/signup-client.component';
 import { SignUpCompanyComponent } from './src/app/component/sign-up-company/sign-up-company.component';
 import { SignupComponent } from './src/app/signup/signup.component';
+import { HomeComponent } from './src/app/home/home.component';
+import { HomesComponent } from './src/app/homes/homes.component';
+import { AvishomeComponent } from './src/app/avishome/avishome.component';
 
 registerLocaleData(fr);
 
@@ -26,6 +29,10 @@ registerLocaleData(fr);
     SignupClientComponent,
     SignUpCompanyComponent,
     SignupComponent,
+    HomeComponent,
+    HomesComponent,
+    AvishomeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,7 @@ registerLocaleData(fr);
     BrowserAnimationsModule,
     HttpClientModule,
     DemonNgZorroAntdModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,NgClass
 
   ],
   providers: [

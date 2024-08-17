@@ -1,15 +1,15 @@
-<div style="background-color: aliceblue">
-  <div class="parent">
-    <div class="child">
-      <div class="imgDiv">
-        <h2 style="margin-left: 230px">Create Service</h2>
+<div style="background-color: aliceblue; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <div class="parent" style="display: flex; justify-content: center;">
+    <div class="child" style="width: 100%; max-width: 600px;">
+      <div class="imgDiv" style="text-align: center; margin-bottom: 20px;">
+        <h2>Create Service</h2>
       </div>
       <form nz-form (ngSubmit)="postService()" [formGroup]="validateForm">
         <div nz-row>
-          <div nz-col [nzMd]="24" [nzXs]="24">
+          <div nz-col [nzMd]="24" [nzXs]="24" style="text-align: center; margin-bottom: 20px;">
             <div class="profile-badge">
-              <label class="upload" *ngIf="selectedFile">
-                <img [src]="imagePreview" alt="profile" class="profile" />
+              <label class="upload" *ngIf="selectedFile" style="display: inline-block;">
+                <img [src]="imagePreview" alt="profile" class="profile" style="width: 100px; height: 100px; border-radius: 50%;" />
               </label>
               <input
                 type="file"
@@ -17,55 +17,52 @@
                 nzType="primary"
                 accept="image/x-png,image/gif,image/jpeg"
                 (change)="onFileSelected($event)"
-
+                style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto;"
               />
-              <button nz-button nzShape="circle"></button>
+              <button nz-button nzShape="circle" style="display: none;"></button>
             </div>
           </div>
 
-          <div nz-col nzSpan="24">
+          <div nz-col nzSpan="24" style="margin-bottom: 20px;">
             <nz-form-item>
-
-              <nz-form-control nzHasFeedback nzErrorTip="this input is required">
+              <nz-form-control nzHasFeedback nzErrorTip="This input is required">
                 <input
-                nz-input
-                  placeholder="serviceName"
-                  nzType="primary"
+                  nz-input
+                  placeholder="Nom Service"
                   formControlName="serviceName"
+                  style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;"
                 />
               </nz-form-control>
             </nz-form-item>
           </div>
 
-          <div nz-col nzSpan="24">
+          <div nz-col nzSpan="24" style="margin-bottom: 20px;">
             <nz-form-item>
-              <nz-form-control nzHasFeedback  nzErrorTip="this input is required">
+              <nz-form-control nzHasFeedback nzErrorTip="This input is required">
                 <input
                   nz-input
                   formControlName="price"
-                  placeholder="price"
-                  nzErrorType="this input is required"
+                  placeholder="Price"
+                  style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;"
                 />
               </nz-form-control>
             </nz-form-item>
           </div>
 
-          <div nz-col nzSpan="24">
+          <div nz-col nzSpan="24" style="margin-bottom: 20px;">
             <nz-form-item>
-              <nz-form-control nzHasFeedback  nzErrorTip="this input is required">
+              <nz-form-control nzHasFeedback nzErrorTip="This input is required">
                 <input
                   nz-input
-                  nzType="primary"
-                  placeholder="description"
+                  placeholder="Description"
                   formControlName="description"
-                  nzErrorType="this input is required"
+                  style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;"
                 />
               </nz-form-control>
             </nz-form-item>
           </div>
         </div>
-        <button nz-button [nzType]="'primary'">Ajouter</button>
-      </form>
-    </div>
-  </div>
-</div>
+        <div style="text-align: center;margin-top: 20px;">
+          <button nz-button [nzType]="'primary'" style="background-color: #15b9d9; border-color: #15b9d9; color: white; border-radius: 5px;">Ajouter</button>
+        </div>
+

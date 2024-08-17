@@ -1,0 +1,105 @@
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" [ngStyle]="{ 'background-image': 'url(assets/img/hotel.jpg)' }">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption-content p-3">
+          <h1 class="display-1 text-capitalize text-white mb-4">
+            Des Hôtels de Luxe
+          </h1>
+          <p class="mb-5 fs-5">
+            Des hôtels à proximité pour une réservation de dernière minute.Des
+            hôtels pas chers aux chambres de luxe, et bien plus encore
+          </p>
+          <a class="btn btn-primary rounded-pill text-white py-3 px-5" routerLink="/login">Reserver Maintenant</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" [ngStyle]="{ 'background-image': 'url(assets/img/traveling.jpg)' }">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption-content p-3">
+          <h1 class="display-1 text-capitalize text-light mb-4">Des Vol Vip</h1>
+          <p class="mb-5 fs-5">
+            Voyagez moins cher : pas de commissions ni de frais cachés. Comparez
+            les prix de plus de 1 200 prestataires de voyages et réservez dès
+            aujourd’hui. Tarifs flexibles.
+          </p>
+          <a class="btn btn-primary rounded-pill text-white py-3 px-5" routerLink="/login">Reserver Maintenant</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" [ngStyle]="{ 'background-image': 'url(assets/img/car.jpg)' }">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption-content p-3">
+          <h1 class="display-1 text-capitalize text-light mb-4 fw-bold">
+            Transport Vip
+          </h1>
+          <p class="mb-5 fs-5">
+            Voyagez moins cher : pas de commissions ni de frais cachés. voyages
+            et réservez dès aujourd’hui. Tarifs flexibles.
+          </p>
+          <a class="btn btn-primary rounded-pill text-white py-3 px-5" routerLink="/login">Reserver Maintenant</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- Services Start -->
+<div class="container-fluid service py-5">
+  <div class="container py-5">
+    <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.2s">
+      <div class="sub-style">
+        <h4 class="sub-title px-3 mb-0">Nos Services</h4>
+      </div>
+      <h1 class="display-3 mb-4">
+        Tout ce que vous cherchez, vous le trouverez ici.
+      </h1>
+      <p class="mb-0">
+        Tous ce que vous cherchez, vous trouverez ici, facilement et rapidement.
+      </p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s"
+        *ngFor="let serv of services | slice : 0 : 8">
+        <div class="service-item rounded">
+          <div class="service-img rounded-top">
+            <img [src]="updateImg(serv.returnedImg)" class="img-fluid rounded-top w-100" alt="Massage Therapy" />
+          </div>
+          <div class="service-content rounded-bottom bg-light p-4">
+            <div class="service-content-inner">
+              <h5 class="title mb-4">{{ serv.serviceName }}</h5>
+              <p class="description mb-4">{{ serv.description }}</p>
+              <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2" routerLink="/login">Reserver
+                Maintenant</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
+        <a class="btn btn-primary rounded-pill text-white py-3 px-5" routerLink="/login">Plus de Services
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Services End -->
+<!--   Avis start -->
+<app-avishome></app-avishome>
+<!--   Avis end -->

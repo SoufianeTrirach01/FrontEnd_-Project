@@ -1,86 +1,87 @@
-<!-- app.component.html -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
-  rel="stylesheet" />
-
-<!-- Icon Font Stylesheet -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-
-<!-- Libraries Stylesheet -->
-<link href="assets/lib/animate/animate.min.css" rel="stylesheet" />
-<link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-
-<!-- Customized Bootstrap Stylesheet -->
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-
-<!-- Template Stylesheet -->
-<link href="assets/css/style.css" rel="stylesheet" />
-
-<body>
-
-  <!-- Navbar & Hero Start -->
-  <div class="container-fluid position-relative p-0">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
-      <a href="index.html" class="navbar-brand p-0">
-        <h1 class="text-primary m-0">
-          <i class="fas fa-star-of-life me-3"></i>System Reservation
-        </h1>
+<div *ngIf="!isClientIsLoggedIn && !isCompanyIsLoggedIn">
+  <nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">
+        <h2 class="text-white">Système de Réservation</h2>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="fa fa-bars"></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarCollapse" *ngIf="!isClientIsLoggedIn && !isCompanyIsLoggedIn">
-        <div class="navbar-nav ms-auto py-0">
-          <a class="btn btn-link nav-item nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-          <a href="service.html" class="nav-item nav-link">Services</a>
-          <a class="btn btn-link nav-item nav-link" routerLink="/login">Avis</a>
-          <div class="nav-item dropdown pt-4 me-2">
-            <a href="#"
-              class="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0 dropdown-toggle"
-              data-bs-toggle="dropdown">Inscription</a>
-            <div class="dropdown-menu m-0">
-              <a routerLink="/registerCompany" class="dropdown-item">je Suis une Entreprise</a>
-              <a routerLink="/registerClient" class="dropdown-item">je Suis un Client</a>
-            </div>
-          </div>
-        </div>
-        <a routerLink="/login" class="btn btn-primary rounded-pill text-white py-2 px-4 flex-wrap flex-sm-shrink-0">Se
-          Connecter</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        </ul>
       </div>
+    </div>
+  </nav>
+</div>
 
-      <div *ngIf="isClientIsLoggedIn" class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-          <a class="btn btn-link nav-item nav-link" routerLink="/client/dashboard" routerLinkActive="active">Dashboard</a>
-          <a class="btn btn-link nav-item nav-link"  routerLink="/client/reservations">Bookings</a>
-          <a class="btn btn-link nav-item nav-link"(click)="logout()">Logout</a>
-        </div>
+<div *ngIf="isClientIsLoggedIn">
+  <nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">
+        <h2 class="text-white">Système de Réservation</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavClient"
+        aria-controls="navbarNavClient" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavClient">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/client/dashboard" routerLinkActive="active">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/client/reservations" routerLinkActive="active">Reservations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+        </ul>
       </div>
-        <div *ngIf="isCompanyIsLoggedIn" class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav ms-auto py-0">
-            <a class="btn btn-link nav-item nav-link" routerLink="/company/dashboard" routerLinkActive="active">Dashboard</a>
-            <a class="btn btn-link nav-item nav-link" routerLink="/company/service" routerLinkActive="active">Service</a>
-            <a class="btn btn-link nav-item nav-link" routerLink="/company/services" routerLinkActive="active">Services</a>
-            <a class="btn btn-link nav-item nav-link"(click)="logout()">Logout</a>
+    </div>
+  </nav>
+</div>
 
-          </div>
-        </div>
-    </nav>
-  </div>
+<div *ngIf="isCompanyIsLoggedIn">
+  <nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">
+        <h2 class="text-white">Système de Réservation</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavCompany"
+        aria-controls="navbarNavCompany" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavCompany">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/company/dashboard" routerLinkActive="active">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/company/service" routerLinkActive="active">Service</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/company/services" routerLinkActive="active">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
 
-  <!-- JavaScript Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/lib/wow/wow.min.js"></script>
-  <script src="assets/lib/easing/easing.min.js"></script>
-  <script src="assets/lib/waypoints/waypoints.min.js"></script>
-  <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
-
-  <!-- Template Javascript -->
-  <script src="assets/js/main.js"></script>
-</body>
-
-<router-outlet></router-outlet>
+<div class="content-container">
+  <router-outlet></router-outlet>
+</div>

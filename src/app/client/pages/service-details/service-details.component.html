@@ -1,71 +1,52 @@
-<div *ngIf="service">
-  <div>
-    <div>
-      <div class="ad-detail">
-        <div nz-col nzspan="16">
-          <img
-            [src]="avatarUrl"
-            style="height: 150px; width: 130px; border-radius: 10px"
-            alt="profile"
-          />
-        </div>
-        <div nz-col nzspan="16">
-          <h2 style="cursor: pointer; color: #108ee9">
-            {{ service.serviceName }}
-          </h2>
+<div *ngIf="service" class="container my-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-primary">{{ service.serviceName }}</h2>
+      <hr />
+    </div>
+  </div>
 
-          <hr />
-
-          <h5></h5>
-
-          <h5>
-            Price : <b>{{ service.price }}</b> Description:
-            <b>{{ service.description }}</b> - Company-Name
-            <b>{{ service.companyName }} </b>
-          </h5>
-          <hr />
-        </div>
-      </div>
-      <div class="book-service">
-        <div>
-          <h2>Book Service</h2>
-        </div>
-        <form nz-form [formGroup]="validateForm">
-          <div>
-            <div>
-              <nz-form-item>
-                <nz-form-label>Date Booking</nz-form-label>
-                <nz-form-control>
-                  <nz-date-picker
-                    formControlName="dateReservation"
-                    name="dateReservation"
-                  ></nz-date-picker>
-                </nz-form-control>
-              </nz-form-item>
-            </div>
-          </div>
-          <button nz-button (click)="reserverService()">Reserver</button>
-        </form>
+  <div class="row">
+    <div class="col-md-6">
+      <img [src]="avatarUrl" class="img-fluid rounded mb-3" alt="Service Image" />
+      <div class="service-details">
+        <h5>
+          Prix: <b>{{ service.price }}</b><br />
+          Description: <b>{{ service.description }}</b><br />
+          Entreprise: <b>{{ service.companyName }}</b>
+        </h5>
       </div>
     </div>
-    <div class="review-section">
-        <div class="review-card" *ngFor="let review of reviews">
-          <nz-card [nzBordered]="false" nzTitle="{{ review.clientName }}">
-            <p>
-              Review: <strong>{{ review.review }}</strong>
-            </p>
-            <p>
-              Review:
-              <strong
-                ><nz-rate disabled [ngModel]="review.note"></nz-rate
-              ></strong>
-            </p>
-            <p>
-              Posted on:
-              <strong>{{ review.reviewDate | date : "dd/MM/yyyy" }}</strong>
-            </p>
-          </nz-card>
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title text-center text-primary">Reservation Service</h2>
+          <form nz-form [formGroup]="validateForm" (ngSubmit)="reserverService()">
+            <div class="form-group">
+              <label for="dateBooking" class="required">Date  Reservation</label>
+              <nz-date-picker formControlName="dateReservation" id="dateBooking" class="form-control"></nz-date-picker>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3" [disabled]="validateForm.invalid">Reserver</button>
+          </form>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2>Avis</h2>
+      <div *ngFor="let review of reviews" class="card mb-3">
+        <div class="card-header">{{ review.clientName }}</div>
+        <div class="card-body">
+          <p>Avis: <strong>{{ review.review }}</strong></p>
+          <p>
+            Notes:
+            <strong><nz-rate disabled [ngModel]="review.note"></nz-rate></strong>
+          </p>
+          <p>Publier on: <strong>{{ review.reviewDate | date: 'dd/MM/yyyy' }}</strong></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

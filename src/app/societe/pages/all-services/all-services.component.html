@@ -1,34 +1,33 @@
-<div class="bg">
-  <div style="margin-top: 10px" class="child" *ngFor="let serv of services">
+<div class="service-container">
+  <div class="service-card" *ngFor="let serv of services">
     <div nz-row>
       <div nz-col nzSpan="8">
-        <img
-          class="profile"
-          [src]="updateImg(serv.returnedImg)"
-          style="height: 130px; width: 200px; border-radius: 10px"
-        />
+        <img class="service-img" [src]="updateImg(serv.returnedImg)" />
       </div>
-
-      <div nz-col nzspan="16">
-        <h2 style="cursor: pointer; color: #108ee9">{{serv.serviceName}}</h2>
-
+      <div nz-col nzSpan="16" class="service-info">
+        <h2 class="service-name">{{ serv.serviceName }}</h2>
         <hr />
-
-        <h5></h5>
-
-        <h5>Price : <b>{{serv.price}}</b> Description: <b>{{serv.description}}</b></h5>
+        <h5>Prix: <b>{{ serv.price }}Dh</b></h5>
+        <p>Description: <b>{{ serv.description }}</b></p>
         <hr />
-
-        <div style="float: right">
+        <div class="service-actions">
           <button
             nzSize="small"
             nz-button
             nzType="primary"
-            routerLink="/company/service/{{serv.id}}"
+            routerLink="/company/service/{{ serv.id }}"
           >
-            Update
+            Modifier
           </button>
-          I <button nzSize="small" nzDanger (click)="deleteService(serv.id)" nz-button nzType="primary">Delete</button> I
+          <button
+            nzSize="small"
+            nzDanger
+            (click)="deleteService(serv.id)"
+            nz-button
+            nzType="primary"
+          >
+            Supprimer
+          </button>
         </div>
       </div>
     </div>

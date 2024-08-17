@@ -1,16 +1,20 @@
-<div class="container">
-  <div class="section">
-    <div class="header">
-      <h1>welcome to servie booking</h1>
-      <p>choose your user type to get started</p>
-    </div>
-    <div class="buttons">
-      <button nz-button routerLink="/registerCompany" nzType="primary">
-        Register as Company
-      </button>
-      <button nz-button routerLink="/registerClient" nzType="primary">
-        Register as Client
-      </button>
+<div class="background-container"></div>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow-sm w-50">
+    <div class="card-body">
+      <div class="text-center mb-4">
+        <h1>Bonjour à votre Service de Réservation</h1>
+        <p>Choisissez votre type d'utilisateur pour commencer</p>
+      </div>
+      <div class="d-flex justify-content-around">
+        <button nz-button routerLink="/registerCompany" nzType="primary" class="btn btn-primary text-white custom-button">
+          Entreprise
+        </button>
+        <button nz-button routerLink="/registerClient" nzType="primary" class="btn btn-primary text-white custom-button">
+          Client
+        </button>
+      </div>
     </div>
   </div>
 </div>
+

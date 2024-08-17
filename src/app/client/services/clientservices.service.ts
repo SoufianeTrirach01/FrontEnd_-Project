@@ -16,6 +16,9 @@ export class ClientservicesService {
   getAllServices(): Observable<any> {
     return this.http.get(BASIC_URL + `api/client/services`, { headers: this.createAuthorizationHeader() })
   }
+  getAllReviews(): Observable<any> {
+    return this.http.get(BASIC_URL + `api/client/reviews`, { headers: this.createAuthorizationHeader() })
+  }
   getByNameServices(name: any): Observable<any> {
     return this.http.get(BASIC_URL + `api/client/services/${name}`, { headers: this.createAuthorizationHeader() })
   }
